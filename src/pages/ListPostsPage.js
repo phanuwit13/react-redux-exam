@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { connect, useSelector } from 'react-redux'
-
+import React, { useEffect } from 'react'
+import { connect, useSelector ,useDispatch} from 'react-redux'
 import { listPostsActions } from '../actions'
-
 import { Post } from '../components/Post'
 
-const PostsPage = ({ dispatch }) => {
+const PostsPage = () => {
+  const dispatch = useDispatch()
   const getPosts = useSelector((state) => state.posts)
+  
 
   useEffect(() => {
     dispatch(listPostsActions.fetchListPosts())
