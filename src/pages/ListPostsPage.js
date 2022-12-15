@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect, useSelector } from 'react-redux'
 
-import { fetchPosts } from '../actions/postsActions'
+import { listPostsActions } from '../actions'
 
 import { Post } from '../components/Post'
 
@@ -9,7 +9,7 @@ const PostsPage = ({ dispatch }) => {
   const getPosts = useSelector((state) => state.posts)
 
   useEffect(() => {
-    dispatch(fetchPosts())
+    dispatch(listPostsActions.fetchListPosts())
   }, [dispatch])
 
   const renderPosts = () => {

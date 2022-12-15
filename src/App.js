@@ -8,16 +8,16 @@ import {
 
 import { Navbar } from './components/Navbar'
 import DashboardPage from './pages/DashboardPage'
-import PostsPage from './pages/PostsPage'
+import PostsPage from './pages/ListPostsPage'
 import SinglePostPage from './pages/SinglePostPage'
-import { clearPosts } from './actions'
+import { listPostsActions } from './actions'
 import { useDispatch } from 'react-redux'
 
 const App = () => {
   const dispatch = useDispatch()
 
   const handleClear = () => {
-    dispatch(clearPosts())
+    dispatch(listPostsActions.clearPosts())
   }
 
   return (

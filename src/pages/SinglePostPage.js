@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchPost } from '../actions/postActions'
-import { fetchComments } from '../actions/commentsActions'
+import { postActions, commentActions } from '../actions'
 
 import { Post } from '../components/Post'
 import { Comment } from '../components/Comment'
@@ -18,8 +17,8 @@ const SinglePostPage = ({
   useEffect(() => {
     const { id } = match.params
 
-    dispatch(fetchComments(id))
-    dispatch(fetchPost(id))
+    dispatch(commentActions.fetchComments(id))
+    dispatch(postActions.fetchPost(id))
   }, [dispatch, match])
 
   const renderPost = () => {
@@ -33,7 +32,7 @@ const SinglePostPage = ({
     if (loading.comments) return <p>Loading comments...</p>
     if (hasErrors.comments) return <p>Unable to display comments.</p>
 
-    return comments.map(comment => (
+    return comments.map((comment) => (
       <Comment key={comment.id} comment={comment} />
     ))
   }
@@ -47,7 +46,7 @@ const SinglePostPage = ({
   )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   post: state.post.post,
   comments: state.comments.comments,
   loading: { post: state.post.loading, comments: state.comments.loading },

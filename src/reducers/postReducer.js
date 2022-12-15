@@ -1,4 +1,4 @@
-import * as actions from '../actions/postActions'
+import * as actions from '../actions'
 
 export const initialState = {
   loading: true,

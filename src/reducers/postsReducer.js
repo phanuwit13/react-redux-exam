@@ -1,4 +1,4 @@
-import * as actions from '../actions/postsActions'
+import * as actions from '../actions'
 
 export const initialState = {
   loading: false,
